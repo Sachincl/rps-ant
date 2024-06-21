@@ -1,7 +1,7 @@
 #!groovy
 pipeline {
     environment {
-        registry = "sachincl/rps-ant"
+        registry = "sachin9041/rps-ant"
         registryCredentials = 'docker-credentials'
     }
     agent any
