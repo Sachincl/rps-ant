@@ -15,7 +15,6 @@ pipeline {
             steps {
                 sh 'echo Building docker image'
                 script {
-                    buildDate = new Date()
                     image = docker.build("${registry}:$BUILD_NUMBER")
                 }
             }
@@ -29,12 +28,6 @@ pipeline {
                         image.push('latest')
                     }
                 }
-            }
-        }
-        stage('CleanUp workspace') {
-            steps {
-                sh ' echo CleanUp'
-                sh "docker rmi ${registry}:${BUILD_NUMBER}"
             }
         }
     }
